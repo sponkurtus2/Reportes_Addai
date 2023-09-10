@@ -10,6 +10,7 @@ import Home from "@mui/icons-material/Home";
 import { styled } from "@mui/joy/styles";
 import Sheet from "@mui/joy/Sheet";
 import Grid from "@mui/joy/Grid";
+import Avatar from "@mui/joy/Avatar";
 
 export default function App() {
   return (
@@ -25,7 +26,7 @@ export default function App() {
   );
 }
 
-function Layout(
+function Layout() {
   return (
     <div className="Layouts">
       <Box
@@ -112,23 +113,41 @@ const Item = styled(Sheet)(({ theme }) => ({
 function Hhome() {
   return (
     <div className="Hhomes">
-      <Grid container spacing={2} columns={16} sx={{ flexGrow: 1 }}>
+      <Grid
+        container
+        spacing={2}
+        columns={16}
+        sx={{ flexGrow: 1, justifyContent: "center" }}
+      >
         <Grid xs={8}>
           <Item>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-            repudiandae quidem distinctio iure nobis reprehenderit amet fugiat
-            iste! Ipsum placeat iure facere blanditiis porro praesentium
-            recusandae maiores consectetur, ea quod. Alias voluptatem deleniti
-            eveniet debitis ab autem nemo ut at nam quasi omnis similique ex,
-            expedita amet corrupti dicta sequi!
+            El propósito principal de esta página es mostrar los reportes que se
+            vayan pidiendo. La página fue hecha con React y joy-ui para los
+            estilos de los componentes, además de que se usó Vercel para hacer
+            el despliegue de una manera sencilla y rápida.
           </Item>
         </Grid>
         <Grid xs={7}>
-          <Item>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
-            ratione repellat eaque repudiandae iure quod modi, laboriosam
-            obcaecati delectus dignissimos culpa exercitationem placeat sint
-            impedit praesentium molestias numquam vel totam!
+          <Item sx={{ display: "flex", justifyContent: "center" }}>
+            <div>
+              <h1>Desarrolladores</h1>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Avatar
+                  src="./assets/C.png"
+                  sx={{
+                    "--Avatar-size": "180px",
+                    margin: "0 10px", // Espacio horizontal entre las imágenes
+                  }}
+                />
+                <Avatar
+                  src="./assets/A.png"
+                  sx={{
+                    "--Avatar-size": "180px",
+                    margin: "0 10px", // Espacio horizontal entre las imágenes
+                  }}
+                />
+              </div>
+            </div>
           </Item>
         </Grid>
       </Grid>
