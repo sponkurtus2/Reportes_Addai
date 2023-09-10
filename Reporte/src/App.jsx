@@ -140,7 +140,7 @@ function Hhome() {
                   }}
                 />
                 <Avatar
-                  src="https://files.worldwildlife.org/wwfcmsprod/images/HERO_Penguins_Antarctica/story_full_width/9de57cats0_Medium_WW267491.jpg"
+                  src="./assets/A.png"
                   sx={{
                     "--Avatar-size": "180px",
                     margin: "0 10px", // Espacio horizontal entre las imágenes
