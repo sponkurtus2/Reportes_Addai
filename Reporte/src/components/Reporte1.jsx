@@ -1,16 +1,47 @@
+import { Outlet, Link as RouterLink } from "react-router-dom";
+import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import Box from "@mui/joy/Box";
-import { styled } from "@mui/joy/styles";
-import Sheet from "@mui/joy/Sheet";
+import { styled, Sheet, Grid } from "@mui/joy";
+import Home from "@mui/icons-material/Home";
+import { useState, useEffect } from "react";
 
-// Reporte hecho por Antonio
-export default function Reporte1() {
+const Reporte1 = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleResize = () => {
+    const width = window.innerWidth;
+    setIsMobile(width <= 768);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Llama a handleResize para verificar el tamaño inicial
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <Item sx={{ marginTop: "15px" }}>
-      <Box sx={{ padding: "16px" }}>
+    <Item
+      sx={{
+        marginTop: isMobile ? "15px" : "15px",
+        padding: isMobile ? "16px 0" : "16px",
+        textAlign: "center",
+      }}
+    >
+      <Box
+        sx={{
+          padding: "16px",
+          maxWidth: isMobile ? "100%" : "960px", // Ajusta el ancho máximo
+          margin: isMobile ? "0 16px" : "0 auto", // Centra el contenido en dispositivos móviles
+        }}
+      >
         <Typography
           variant="h1"
-          sx={{ marginBottom: "16px", fontSize: "25px", color: "#974EC3" }}
+          sx={{
+            marginBottom: "16px",
+            fontSize: isMobile ? "20px" : "25px",
+            color: "#974EC3",
+          }}
         >
           Características y lenguajes utilizados en las aplicaciones web
           orientadas a servicios.
@@ -27,7 +58,11 @@ export default function Reporte1() {
         </Typography>
         <Typography
           variant="h6"
-          sx={{ marginBottom: "16px", fontSize: "25px", color: "#974EC3" }}
+          sx={{
+            marginBottom: "16px",
+            fontSize: isMobile ? "20px" : "25px",
+            color: "#974EC3",
+          }}
         >
           Conceptos clave
         </Typography>
@@ -57,7 +92,11 @@ export default function Reporte1() {
         </Typography>
         <Typography
           variant="h6"
-          sx={{ marginBottom: "16px", fontSize: "25px", color: "#974EC3" }}
+          sx={{
+            marginBottom: "16px",
+            fontSize: isMobile ? "20px" : "25px",
+            color: "#974EC3",
+          }}
         >
           Características
         </Typography>
@@ -140,7 +179,11 @@ export default function Reporte1() {
         </ul>
         <Typography
           variant="h6"
-          sx={{ marginBottom: "16px", fontSize: "25px", color: "#974EC3" }}
+          sx={{
+            marginBottom: "16px",
+            fontSize: isMobile ? "20px" : "25px",
+            color: "#974EC3",
+          }}
         >
           Implementación
         </Typography>
@@ -171,7 +214,11 @@ export default function Reporte1() {
         </ul>
         <Typography
           variant="h6"
-          sx={{ marginBottom: "16px", fontSize: "25px", color: "#974EC3" }}
+          sx={{
+            marginBottom: "16px",
+            fontSize: isMobile ? "20px" : "25px",
+            color: "#974EC3",
+          }}
         >
           Lenguajes Populares
         </Typography>
@@ -192,7 +239,7 @@ export default function Reporte1() {
       </Box>
     </Item>
   );
-}
+};
 
 const Item = styled(Sheet)(({ theme }) => ({
   backgroundColor:
@@ -203,3 +250,5 @@ const Item = styled(Sheet)(({ theme }) => ({
   borderRadius: 4,
   color: "#cdc9d7 ",
 }));
+
+export default Reporte1;
