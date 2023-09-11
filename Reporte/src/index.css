@@ -28,4 +28,12 @@ body {
   padding-top: 35px;
 }
 
+b {
+  color: #dfccfb;
+}
+
+li {
+  list-style: none;
+}
+
 /* Desactivar el resaltado de foco en los enlaces */
